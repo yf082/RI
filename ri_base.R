@@ -45,5 +45,10 @@ ri_base = function(Out, Exp, Cov, data) {
   RI = mean(p_11) - mean(p_01) - mean(p_10) + mean(p_00)
   RRERI = (mean(p_11) - mean(p_01) - mean(p_10) + mean(p_00)) / mean(p_00)
   RSI = (mean(p_11) - mean(p_00)) / (mean(p_01) - mean(p_00) + mean(p_10) - mean(p_00)) 
-  return(list(res = c(RI = RI, RRERI = RRERI, RSI = RSI), OEC = list(Out = Out, Exp = Exp, Cov = Cov), data = data))
+  
+  ## Output
+  return(list(res = c(RI = RI, RRERI = RRERI, RSI = RSI), 
+              OEC = list(Out = Out, Exp = Exp, Cov = Cov), 
+              data = data))
 }
+

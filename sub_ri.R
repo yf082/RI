@@ -1,4 +1,4 @@
-sub_ri = function(Out, Exp, Cov, data, n.boot = 100) {
+sub_ri = function(Out, Exp, Cov, data) {
   
   library(data.table);library(tidyverse)
   
@@ -30,8 +30,10 @@ sub_ri = function(Out, Exp, Cov, data, n.boot = 100) {
       
       ## Point estimation
       result[[z]] = ri_base(Out = Out, Exp =Exp, Cov = Cov, data = data_)
+      
       pop_num[z] = nrow(data[data[[Exp_1]] == levels_1[i] & data[[Exp_2]] == levels_2[j]])
       pop_nam[z] = paste0(levels_1[i], levels_2[j])
+      
       z = z + 1
     }
   }

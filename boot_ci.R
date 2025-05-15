@@ -1,4 +1,4 @@
-boot_ci = function(res, n.boot = 100) {
+boot_ci = function(res, n.boot = n.boot) {
   
   point.est = res$res
   data = res$data
@@ -10,7 +10,8 @@ boot_ci = function(res, n.boot = 100) {
     ri_base(Out = res$OEC$Out,
             Exp = res$OEC$Exp,
             Cov = res$OEC$Cov,
-            data = data[id.boot,])$res
+            data = data[id.boot,],
+            ...)$res
   })
   
   boot.se = apply(boot.est, 1, sd)
@@ -24,7 +25,7 @@ boot_ci = function(res, n.boot = 100) {
 }
 
 
-boot_ci_comb = function(res, n.boot = 50) {
+boot_ci_comb = function(res, n.boot = n.boot) {
   
   sub_result = res$result
   pop_pro = res$pop_pro

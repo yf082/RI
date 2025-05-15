@@ -1,4 +1,4 @@
-pop_ri = function(Out, Exp, Cov, data, n.boot = 100) {
+pop_ri = function(Out, Exp, Cov, data, n.boot = 10) {
   
   library(data.table);library(tidyverse)
   
@@ -11,13 +11,12 @@ pop_ri = function(Out, Exp, Cov, data, n.boot = 100) {
   
   bbb = sub_ri(Out = Out, Exp =Exp, Cov = Cov, data = data)
   
-  ccc = boot_ci_comb(bbb, n.boot = 50)
+  ccc = boot_ci_comb(bbb, n.boot = n.boot)
   
-  result = list(fin_res = ccc,
-                sub_res = bbb)
+  result = list(fin_res = ccc, sub_res = bbb)
   
   class(result) = "ri"
-  print.ri = function(x, ...) {
+  print.ri = function(x) {
     cat(paste0(rep("=", 30), collapse = "="), "\n")
     cat('Over population    RI:', 
         format(round(ccc$pop_est[1,1], 3), nsmall = 3), "(",
