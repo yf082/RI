@@ -28,6 +28,7 @@ boot_ci = function(res, n.boot = n.boot) {
 boot_ci_comb = function(res, n.boot = n.boot) {
   
   sub_result = res$result
+  true_point_est = res$estmate$overall
   pop_pro = res$pop_pro
   pop_nam = res$pop_nam
   
@@ -74,7 +75,7 @@ boot_ci_comb = function(res, n.boot = n.boot) {
     pop_est = pop_est + pop_med
   }
   
-  pop_est = data.frame(est = res$estmate$overall,
+  pop_est = data.frame(est = true_point_est,
                        se = apply(pop_est, 1, sd))
   return(list(sub_est = sub_est, pop_est = pop_est))
 }

@@ -34,5 +34,6 @@ sub_ri(Out = "y",
 pop_ri(Out = "y",
        Exp = c("x1", "x2"),
        Cov = c("c1", "c2", "c3", "c4"),
-       data = dt_bytx, n.boot = 5)
+       data = dt_bytx, 
+       n.boot = 10)
 
