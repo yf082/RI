@@ -74,7 +74,7 @@ boot_ci_comb = function(res, n.boot = n.boot) {
     pop_est = pop_est + pop_med
   }
   
-  pop_est = data.frame(est = apply(pop_est, 1, mean),
+  pop_est = data.frame(est = res$estmate$overall,
                        se = apply(pop_est, 1, sd))
   return(list(sub_est = sub_est, pop_est = pop_est))
 }
